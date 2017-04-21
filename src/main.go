@@ -13,8 +13,8 @@ import (
 #include <windows.h>
 
 int GetSerivceProcessId(HANDLE handle) {
-	SERVICE_STATUS_PROCESS ssStatus;
-	DWORD dwBytesNeeded;
+    SERVICE_STATUS_PROCESS ssStatus;
+    DWORD dwBytesNeeded;
 
     if (!QueryServiceStatusEx(
 		handle,                          // handle to service
@@ -55,8 +55,8 @@ func main() {
 	for {
 		status, err := srv.Query()
 		checkErr(err, "Query service status")
-		if status.State == svc.Running {
 
+		if status.State == svc.Running {
 			_, err := srv.Control(svc.Stop)
 			checkErr(err, "Stop service")
 
@@ -81,7 +81,7 @@ func main() {
 			break
 		}
 
-		time.Sleep(time.Second)
+		time.Sleep(time.Microsecond * 30)
 	}
 
 	os.Exit(0)

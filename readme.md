@@ -4,3 +4,5 @@
 
 just "make all"
 
+## Usage
+StopSrv {service name}
